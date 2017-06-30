@@ -59,7 +59,45 @@ class CurrencyApiManager: NSObject {
     // MARK: - API call Methods
     // ==========================================================================
     
-    func updateCurrencyRates(completion: @escaping (Result<[String: AnyObject]>) -> Void ) {
+    func getCurrencyQuotes(completion: @escaping (Result<[Quote]>) -> Void) {
+        
+        CurrencyApiManager.sharedInstance.updateCurrencyRates { result in
+            print("\(result)")
+            print("")
+            
+            
+            switch result {
+            case .Success(let response):
+                
+                print("\(response)")
+                print("")
+                if let rawQuotes = response["quotes"] as? [String: Double] {
+                    
+                    print("\(rawQuotes)")
+                    print("")
+                    
+                    var parsedQuotes = [Quote]()
+                    
+                    for (name, rate) in rawQuotes {
+                        if let source = self.sourceCurrency {
+                            
+                            let currencyName = name.replacingOccurrences(of: source, with: "")
+                            let aQuote = Quote(currency: currencyName, quote: rate)
+                            parsedQuotes.append(aQuote)
+                        }
+                    }
+                    completion(.Success(parsedQuotes))
+                }
+                
+                break
+                
+            case .Error(let error):
+                completion(.Error(error))
+            }
+        }
+    }
+    
+    func updateCurrencyRates(completion: @escaping (Result<[String: Any]>) -> Void ) {
         
         guard let myApiKey = self.apiKey else {
             print("Load App Configuration first")

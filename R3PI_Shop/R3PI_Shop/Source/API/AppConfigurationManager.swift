@@ -23,29 +23,6 @@ class AppConfigurationManager: NSObject {
     static let sharedInstance = AppConfigurationManager()
     
     // ==========================================================================
-    // MARK: - Properties
-    // ==========================================================================
-    
-    fileprivate var _defaultDisplayCurrencyLocale : String?
-    var defaultDisplayCurrencyLocale: String? {
-        set {
-            if _defaultDisplayCurrencyLocale != newValue {
-                _defaultDisplayCurrencyLocale = newValue
-            }
-        }
-        
-        get {
-            // Fallback handling
-            if let myDefault = _defaultDisplayCurrencyLocale {
-                return myDefault
-            }
-            else {
-                return "en_US"
-            }
-        }
-    }
-    
-    // ==========================================================================
     // MARK: - Constants
     // ==========================================================================
     
@@ -67,7 +44,6 @@ class AppConfigurationManager: NSObject {
         static let Currency_api_key             = "currency_api_key"
         static let Available_currencies         = "available_currencies"
         static let Products                     = "products"
-        static let DefaultDisplayCurrencyLocale = "defaultDisplayCurrencyLocale"
         static let SourceCurrency               = "sourceCurrency"
     }
     
@@ -101,10 +77,6 @@ class AppConfigurationManager: NSObject {
                         
                         if let sourceCurrency = rawConfig[ParseKeys.SourceCurrency] as? String {
                             CurrencyApiManager.sharedInstance.sourceCurrency = sourceCurrency
-                        }
-                        
-                        if let defaultCurrencyLocale = rawConfig[ParseKeys.DefaultDisplayCurrencyLocale] as? String {
-                            self.defaultDisplayCurrencyLocale = defaultCurrencyLocale
                         }
                         
                         completion(.Success(nil))

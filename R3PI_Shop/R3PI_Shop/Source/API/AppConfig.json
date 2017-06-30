@@ -1,11 +1,10 @@
 {
 	"configuration": {
 		"currency_api_key": "65e02c846be42c22bf91a1bd89738709",
-        "defaultDisplayCurrencyLocale" : "en_US",
         "sourceCurrency" : "USD",
 		"available_currencies": [
 			"EUR",
-			"CFR",
+			"CHF",
 			"GBP",
 			"AUD",
 			"CAD"

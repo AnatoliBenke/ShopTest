@@ -106,8 +106,7 @@ class CartTableViewCell: UITableViewCell {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.currency
-        // Save to force unwrap here, because fallback handling is done
-        formatter.locale = Locale(identifier: AppConfigurationManager.sharedInstance.defaultDisplayCurrencyLocale!)
+        formatter.currencyCode = CurrencyApiManager.sharedInstance.sourceCurrency
         
         if let price = cartItem.product?.price {
             if let piecePrice = formatter.string(from: NSNumber(value: price)) {

@@ -223,7 +223,7 @@ extension CoreDataStack {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: ShopProduct.self))
             do {
                 let objects = try context.fetch(fetchRequest) as? [NSManagedObject]
-                _ = objects.map{$0.map{context.delete($0)}}
+                _ = objects.map{ $0.map{ context.delete($0) } }
                 self.saveContext()
             }
             catch let error {
@@ -297,7 +297,7 @@ extension CoreDataStack {
             let fetchRequest = CartItem.request
             do {
                 let objects = try context.fetch(fetchRequest) as? [NSManagedObject]
-                _ = objects.map{$0.map{context.delete($0)}}
+                _ = objects.map{ $0.map{ context.delete($0) } }
                 self.saveContext()
             }
             catch let error {
