@@ -82,8 +82,9 @@ class ShopViewController: UIViewController {
                     }
                     
                     
-                    CurrencyApiManager.sharedInstance.updateCurrencyRates { result in
-                        
+                    CurrencyApiManager.sharedInstance.getCurrencyQuotes { result in
+                        print("\(result)")
+                        print("")
                     }
                     
                 break

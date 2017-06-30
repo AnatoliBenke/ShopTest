@@ -45,6 +45,12 @@
 		5B2AE54F1EFBF81300AF4A86 /* UIResponder+IsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2AE54D1EFBF81300AF4A86 /* UIResponder+IsPad.swift */; };
 		5B7199E41EFFBFA3004E6F8C /* AppConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */; };
 		5B7199E51EFFBFA3004E6F8C /* AppConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */; };
+		5B7320A11F061A80000948E5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A01F061A80000948E5 /* Currency.swift */; };
+		5B7320A21F061A80000948E5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A01F061A80000948E5 /* Currency.swift */; };
+		5B7320A61F06257A000948E5 /* CheckoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A41F06257A000948E5 /* CheckoutHeader.swift */; };
+		5B7320A71F06257A000948E5 /* CheckoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A41F06257A000948E5 /* CheckoutHeader.swift */; };
+		5B7320A81F06257A000948E5 /* CheckoutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7320A51F06257A000948E5 /* CheckoutHeader.xib */; };
+		5B7320A91F06257A000948E5 /* CheckoutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7320A51F06257A000948E5 /* CheckoutHeader.xib */; };
 		5BD25EC71EFFAA0500591645 /* CurrencyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */; };
 		5BD25EC81EFFAA0500591645 /* CurrencyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */; };
 		5BF356701F01FD6300ACD7F2 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3566F1F01FD6300ACD7F2 /* CartManager.swift */; };
@@ -115,6 +121,9 @@
 		5B2AE5471EFBF68D00AF4A86 /* ShopCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B2AE54D1EFBF81300AF4A86 /* UIResponder+IsPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+IsPad.swift"; sourceTree = "<group>"; };
 		5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigurationManager.swift; sourceTree = "<group>"; };
+		5B7320A01F061A80000948E5 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		5B7320A41F06257A000948E5 /* CheckoutHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutHeader.swift; sourceTree = "<group>"; };
+		5B7320A51F06257A000948E5 /* CheckoutHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutHeader.xib; sourceTree = "<group>"; };
 		5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyApiManager.swift; sourceTree = "<group>"; };
 		5BF3566F1F01FD6300ACD7F2 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		5BF550271EFC3580008D02E0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -238,7 +247,7 @@
 		5B2AE53B1EFBF42E00AF4A86 /* CartViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5B7AE6391F0577FA00F022F2 /* Header */,
+				5B7320A31F062564000948E5 /* Header */,
 				5BF3566E1F01FD2300ACD7F2 /* Logic */,
 				5BF550551EFE78B2008D02E0 /* Cells */,
 				5BF550521EFE77B7008D02E0 /* CartViewController.swift */,
@@ -298,9 +307,11 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		5B7AE6391F0577FA00F022F2 /* Header */ = {
+		5B7320A31F062564000948E5 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				5B7320A41F06257A000948E5 /* CheckoutHeader.swift */,
+				5B7320A51F06257A000948E5 /* CheckoutHeader.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				5B22DFEB1EFFCC4B0030E07B /* AppConfig.json */,
+				5B7320A01F061A80000948E5 /* Currency.swift */,
 				5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */,
 				5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */,
 			);
@@ -442,6 +454,7 @@
 			files = (
 				5B2AE54A1EFBF68D00AF4A86 /* ShopCollectionViewCell.xib in Resources */,
 				5B2AE5191EFBF31400AF4A86 /* LaunchScreen.storyboard in Resources */,
+				5B7320A81F06257A000948E5 /* CheckoutHeader.xib in Resources */,
 				5BF5505A1EFE78CC008D02E0 /* CartTableViewCell.xib in Resources */,
 				5B2AE5111EFBF31400AF4A86 /* Main.storyboard in Resources */,
 				5B2AE53F1EFBF44F00AF4A86 /* Assets.xcassets in Resources */,
@@ -453,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7320A91F06257A000948E5 /* CheckoutHeader.xib in Resources */,
 				5B2AE54B1EFBF68D00AF4A86 /* ShopCollectionViewCell.xib in Resources */,
 				5B2AE5401EFBF44F00AF4A86 /* Assets.xcassets in Resources */,
 				5B22DFED1EFFCC4B0030E07B /* AppConfig.json in Resources */,
@@ -474,9 +488,11 @@
 				5BF356701F01FD6300ACD7F2 /* CartManager.swift in Sources */,
 				5BF550321EFE4ED4008D02E0 /* Theme.swift in Sources */,
 				5B2AE5341EFBF38000AF4A86 /* R3PI_Shop.xcdatamodeld in Sources */,
+				5B7320A11F061A80000948E5 /* Currency.swift in Sources */,
 				5B22E00C1F02CEBF0030E07B /* ShopProduct+CoreDataProperties.swift in Sources */,
 				5BF550421EFE5112008D02E0 /* ThemeLargePhone.swift in Sources */,
 				5B2AE5361EFBF38000AF4A86 /* AppDelegate.swift in Sources */,
+				5B7320A61F06257A000948E5 /* CheckoutHeader.swift in Sources */,
 				5BF5504A1EFE61BD008D02E0 /* UIColor+Shop.swift in Sources */,
 				5B22E00A1F02CEBF0030E07B /* ShopProduct+CoreDataClass.swift in Sources */,
 				5BF5504D1EFE633B008D02E0 /* UIFont+Shop.swift in Sources */,
@@ -517,6 +533,8 @@
 				5B2AE5431EFBF48000AF4A86 /* ShopViewController.swift in Sources */,
 				5B22DFE71EFFC64C0030E07B /* UIImageView+LoadAndCache.swift in Sources */,
 				5BF550411EFE5112008D02E0 /* ThemeIPadDefault.swift in Sources */,
+				5B7320A21F061A80000948E5 /* Currency.swift in Sources */,
+				5B7320A71F06257A000948E5 /* CheckoutHeader.swift in Sources */,
 				5BF550541EFE77B7008D02E0 /* CartViewController.swift in Sources */,
 				5B22E0011F02CBE60030E07B /* BadgeButtonItem.swift in Sources */,
 				5BF550481EFE60F9008D02E0 /* UIColorExtension.swift in Sources */,

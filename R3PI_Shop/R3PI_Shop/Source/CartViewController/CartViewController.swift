@@ -46,6 +46,8 @@ class CartViewController: UIViewController {
     
     var mode: CartMode = .modify
     
+    var checkoutHeaderView: CheckoutHeader?
+    
     // ==========================================================================
     // MARK: - UIViewController Methods
     // ==========================================================================
@@ -74,6 +76,15 @@ class CartViewController: UIViewController {
         catch let error {
             print(error)
         }
+        
+        
+        //self.setupCheckoutHeaderView()
+    }
+    
+    fileprivate func setupCheckoutHeaderView() {
+        self.checkoutHeaderView = CheckoutHeader.newInstance()
+        self.checkoutHeaderView?.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.tableView.frame.width, height: self.isPad() ? CheckoutHeader.Constants.HeightiPad : CheckoutHeader.Constants.Height))
+        self.tableView.tableHeaderView = self.checkoutHeaderView
     }
     
     fileprivate func setupNavigationBarItems() {
