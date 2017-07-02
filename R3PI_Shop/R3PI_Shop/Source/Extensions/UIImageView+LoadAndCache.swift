@@ -20,6 +20,9 @@ extension UIImageView {
             self.image = cachedImage
             return
         }
+        else {
+            self.image = placeHolder
+        }
         
         if let url = URL(string: URLString) {
             
