@@ -60,15 +60,10 @@ class ShopViewController: UIViewController {
         
         self.setupCollectionView()
         
-        self.automaticallyAdjustsScrollViewInsets = false
-        
         self.title = "R3PI Grossery Store"
         
-        self.view.backgroundColor = UIColor.defaultViewBackgroundColor()
-        self.collectionView.backgroundColor = UIColor.clear
-        
+        self.setupTheme()
         self.setupNavigationBarItems()
-        
         
         AppConfigurationManager.sharedInstance.loadAppConfiguration { configResult in
             switch configResult {
@@ -79,25 +74,18 @@ class ShopViewController: UIViewController {
                     }
                     catch let error {
                         print(error)
-                    }
-                    
-                    
-                    CurrencyApiManager.sharedInstance.getCurrencyQuotes { result in
-                        print("\(result)")
-                        print("")
+                        AlertManager.showSingleButtonAlertView(from: self, title: "Error", message: "Something went wrong. Please make sure you are connected to the Internet")
                     }
                     
                 break
                 
                 case .Error(let error):
+                    AlertManager.showSingleButtonAlertView(from: self, title: "Error", message: "Could not load App configuration. Please make sure you are connected to the Internet")
                     print(error)
             }
         }
         
-        
-        
-        
-         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     deinit {
@@ -107,20 +95,21 @@ class ShopViewController: UIViewController {
     // ==========================================================================
     // MARK: - Private Methods
     // ==========================================================================
-    var cartButton: BadgeButtonItem?
     
-    fileprivate func setupNavigationBarItems() {
-        self.cartButton = BadgeButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.presentCartViewController))
-        self.cartButton!.setupBadgeView()
+    fileprivate func setupTheme() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
         
+        self.view.backgroundColor = UIColor.defaultViewBackgroundColor()
+        self.collectionView.backgroundColor = UIColor.clear
         
-        self.navigationItem.rightBarButtonItems = [self.cartButton!]
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    fileprivate func setupNavigationBarItems() {
+        let cartButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.presentCartViewController))
+        cartButton.tintColor = UIColor.defaultCtaColor()
         
-        self.cartButton!.badgeValue = 10
+        self.navigationItem.rightBarButtonItems = [cartButton]
     }
     
     @objc fileprivate func presentCartViewController() {
@@ -291,7 +280,6 @@ extension ShopViewController : UICollectionViewDataSource {
             return Constants.CollectionViewRowPaddingiPhone
         }
     }
-    
 }
 
 // ==========================================================================
@@ -342,6 +330,11 @@ extension ShopViewController: ShopCollectionViewCellDelegate {
         if let indexPath = self.collectionView.indexPath(for: cell) {
             if let product = self.fetchedhResultController.fetchedObjects?[indexPath.row] as? ShopProduct {
                 CartManager.sharedInstance.add(product: product)
+                
+                let buttonItemView = self.navigationItem.rightBarButtonItem!.value(forKey: "view") as! UIView
+                let toFrame = buttonItemView.frame
+                
+                self.navigationController?.animateView(cell.imageView, fromRect: cell.frame, toRect: toFrame)
             }
         }
     }

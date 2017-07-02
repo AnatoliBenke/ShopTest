@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIResponder {
+    
     func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
