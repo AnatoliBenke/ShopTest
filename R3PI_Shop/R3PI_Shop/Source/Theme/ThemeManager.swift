@@ -77,7 +77,7 @@ class ThemeManager {
     // MARK: - CartTableViewCell
     // ==========================================================================
     
-    class func cartTableViewCellStyle(_ cell: UICollectionViewCell) {
+    class func cartTableViewCellStyle(_ cell: UITableViewCell) {
         self.sharedInstance.theme.cartTableViewCellStyle(cell)
     }
     
@@ -89,9 +89,60 @@ class ThemeManager {
         self.sharedInstance.theme.cartTableViewCellSubTitleLabelStyle(label)
     }
     
+    class func cartTableViewCellPriceTotalLabelStyle(_ label: UILabel) {
+        self.sharedInstance.theme.cartTableViewCellPriceTotalLabelStyle(label)
+    }
+    
+    class func cartTableViewCellPriceLabelStyle(_ label: UILabel) {
+        self.sharedInstance.theme.cartTableViewCellPriceLabelStyle(label)
+    }
+    
     class func cartTableViewCellImageViewStyle(_ imageView: UIImageView) {
         self.sharedInstance.theme.cartTableViewCellImageViewStyle(imageView)
     }
     
     
+    class func cartTableViewPriceDeviderImageViewStyle(_ imageView: UIImageView) {
+        self.sharedInstance.theme.cartTableViewPriceDeviderImageViewStyle(imageView)
+    }
+    
+    class func cartTableViewCellCellDeviderImageViewStyle(_ imageView: UIImageView) {
+        self.sharedInstance.theme.cartTableViewCellCellDeviderImageViewStyle(imageView)
+    }
+    
+    class func cartTableViewCellDecreaseButtonStyle(_ button: UIButton) {
+        self.sharedInstance.theme.cartTableViewCellDecreaseButtonStyle(button)
+    }
+    
+    class func cartTableViewCellIncreaseButtonStyle(_ button: UIButton) {
+        self.sharedInstance.theme.cartTableViewCellIncreaseButtonStyle(button)
+    }
+    
+    // ==========================================================================
+    // MARK: - CheckoutHeaderView
+    // ==========================================================================
+    
+    class func checkoutHeaderViewStyle(_ view: UIView) {
+        self.sharedInstance.theme.checkoutHeaderViewStyle(view)
+    }
+    
+    class func checkoutHeaderViewPrefixLabelStyle(_ label: UILabel) {
+        self.sharedInstance.theme.checkoutHeaderViewPrefixLabelStyle(label)
+    }
+    
+    class func checkoutHeaderViewPriceLabelStyle(_ label: UILabel) {
+        self.sharedInstance.theme.checkoutHeaderViewPriceLabelStyle(label)
+    }
+    
+    class func checkoutHeaderViewChangeCurrencyButtonStyle(_ button: UIButton) {
+        self.sharedInstance.theme.checkoutHeaderViewChangeCurrencyButtonStyle(button)
+    }
+    
+    class func checkoutHeaderViewCancelButtonStyle(_ button: UIButton) {
+        self.sharedInstance.theme.checkoutHeaderViewCancelButtonStyle(button)
+    }
+    
+    class func checkoutHeaderViewProceedButtonStyle(_ button: UIButton) {
+        self.sharedInstance.theme.checkoutHeaderViewProceedButtonStyle(button)
+    }
 }

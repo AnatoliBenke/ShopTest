@@ -26,9 +26,28 @@ protocol Theme {
     // MARK: - CartTableViewCell
     // ==========================================================================
     
-    func cartTableViewCellStyle(_ cell: UICollectionViewCell)
+    func cartTableViewCellStyle(_ cell: UITableViewCell)
     func cartTableViewCellTitleLabelStyle(_ label: UILabel)
     func cartTableViewCellSubTitleLabelStyle(_ label: UILabel)
+    func cartTableViewCellPriceTotalLabelStyle(_ label: UILabel)
+    func cartTableViewCellPriceLabelStyle(_ label: UILabel)
+    
     func cartTableViewCellImageViewStyle(_ imageView: UIImageView)
+    func cartTableViewPriceDeviderImageViewStyle(_ imageView: UIImageView)
+    func cartTableViewCellCellDeviderImageViewStyle(_ imageView: UIImageView)
+    
+    func cartTableViewCellDecreaseButtonStyle(_ button: UIButton)
+    func cartTableViewCellIncreaseButtonStyle(_ button: UIButton)
+    
+    // ==========================================================================
+    // MARK: - CheckoutHeaderView
+    // ==========================================================================
+    
+    func checkoutHeaderViewStyle(_ view: UIView)
+    func checkoutHeaderViewPrefixLabelStyle(_ label: UILabel)
+    func checkoutHeaderViewPriceLabelStyle(_ label: UILabel)
+    func checkoutHeaderViewChangeCurrencyButtonStyle(_ button: UIButton)
+    func checkoutHeaderViewCancelButtonStyle(_ button: UIButton)
+    func checkoutHeaderViewProceedButtonStyle(_ button: UIButton)
     
 }
