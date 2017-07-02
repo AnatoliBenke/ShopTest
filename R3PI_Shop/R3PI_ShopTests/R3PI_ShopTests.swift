@@ -32,5 +32,9 @@ class R3PI_ShopTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+}
+
+extension R3PI_ShopTests {
+    
     
 }
