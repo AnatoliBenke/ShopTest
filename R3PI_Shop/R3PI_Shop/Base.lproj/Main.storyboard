@@ -66,7 +66,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YKg-er-Bl6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YKg-er-Bl6">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -91,6 +91,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wee-ej-mzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1188" y="70"/>
+        </scene>
+        <!--Currency Picker View Controller-->
+        <scene sceneID="TyK-Gt-z6E">
+            <objects>
+                <viewController storyboardIdentifier="CurrencyPickerViewController" id="r2g-iS-w0E" customClass="CurrencyPickerViewController" customModule="R3PI_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sze-0s-KN0"/>
+                        <viewControllerLayoutGuide type="bottom" id="qUe-8g-t5s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="akO-Nh-1UD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6g-4b-v1j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="DlS-Ij-dxK"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Y6g-4b-v1j" secondAttribute="trailing" id="CDy-f3-5le"/>
+                            <constraint firstItem="Y6g-4b-v1j" firstAttribute="top" secondItem="sze-0s-KN0" secondAttribute="bottom" id="Krc-nf-bIf"/>
+                            <constraint firstItem="Y6g-4b-v1j" firstAttribute="leading" secondItem="akO-Nh-1UD" secondAttribute="leading" id="sNU-Ge-pLj"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="216"/>
+                    <connections>
+                        <outlet property="pickerView" destination="Y6g-4b-v1j" id="b4Z-a6-njP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lll-im-HV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1988" y="214"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QmX-Nm-qSR">

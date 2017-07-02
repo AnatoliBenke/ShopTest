@@ -15,8 +15,6 @@
 		5B22DFED1EFFCC4B0030E07B /* AppConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B22DFEB1EFFCC4B0030E07B /* AppConfig.json */; };
 		5B22DFF91F015E300030E07B /* ShopLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFF81F015E300030E07B /* ShopLabel.swift */; };
 		5B22DFFA1F015E300030E07B /* ShopLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFF81F015E300030E07B /* ShopLabel.swift */; };
-		5B22E0001F02CBE60030E07B /* BadgeButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFFF1F02CBE60030E07B /* BadgeButtonItem.swift */; };
-		5B22E0011F02CBE60030E07B /* BadgeButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFFF1F02CBE60030E07B /* BadgeButtonItem.swift */; };
 		5B22E0061F02CEBF0030E07B /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22E0021F02CEBF0030E07B /* CartItem+CoreDataClass.swift */; };
 		5B22E0071F02CEBF0030E07B /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22E0021F02CEBF0030E07B /* CartItem+CoreDataClass.swift */; };
 		5B22E0081F02CEBF0030E07B /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22E0031F02CEBF0030E07B /* CartItem+CoreDataProperties.swift */; };
@@ -47,12 +45,20 @@
 		5B7199E51EFFBFA3004E6F8C /* AppConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */; };
 		5B7320A11F061A80000948E5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A01F061A80000948E5 /* Currency.swift */; };
 		5B7320A21F061A80000948E5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A01F061A80000948E5 /* Currency.swift */; };
-		5B7320A61F06257A000948E5 /* CheckoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A41F06257A000948E5 /* CheckoutHeader.swift */; };
-		5B7320A71F06257A000948E5 /* CheckoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7320A41F06257A000948E5 /* CheckoutHeader.swift */; };
-		5B7320A81F06257A000948E5 /* CheckoutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7320A51F06257A000948E5 /* CheckoutHeader.xib */; };
-		5B7320A91F06257A000948E5 /* CheckoutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7320A51F06257A000948E5 /* CheckoutHeader.xib */; };
-		5BD25EC71EFFAA0500591645 /* CurrencyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */; };
-		5BD25EC81EFFAA0500591645 /* CurrencyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */; };
+		5B7320A81F06257A000948E5 /* CheckoutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7320A51F06257A000948E5 /* CheckoutHeaderView.xib */; };
+		5B7320A91F06257A000948E5 /* CheckoutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7320A51F06257A000948E5 /* CheckoutHeaderView.xib */; };
+		5BB3EEB21F078E6700809C6D /* CheckoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEB11F078E6700809C6D /* CheckoutHeaderView.swift */; };
+		5BB3EEB31F078E6700809C6D /* CheckoutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEB11F078E6700809C6D /* CheckoutHeaderView.swift */; };
+		5BB3EEB71F07A0D700809C6D /* CurrencyPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEB51F07A0D700809C6D /* CurrencyPickerViewController.swift */; };
+		5BB3EEB81F07A0D700809C6D /* CurrencyPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEB51F07A0D700809C6D /* CurrencyPickerViewController.swift */; };
+		5BB3EEC01F07BFE800809C6D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEBF1F07BFE800809C6D /* AlertManager.swift */; };
+		5BB3EEC11F07BFE800809C6D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEBF1F07BFE800809C6D /* AlertManager.swift */; };
+		5BB3EEC41F08EF3500809C6D /* UIView+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEC31F08EF3500809C6D /* UIView+Copy.swift */; };
+		5BB3EEC51F08EF3500809C6D /* UIView+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEC31F08EF3500809C6D /* UIView+Copy.swift */; };
+		5BB3EEC71F08F4AF00809C6D /* NavigationController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEC61F08F4AF00809C6D /* NavigationController+Animation.swift */; };
+		5BB3EEC81F08F4AF00809C6D /* NavigationController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3EEC61F08F4AF00809C6D /* NavigationController+Animation.swift */; };
+		5BD25EC71EFFAA0500591645 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD25EC61EFFAA0500591645 /* CurrencyManager.swift */; };
+		5BD25EC81EFFAA0500591645 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD25EC61EFFAA0500591645 /* CurrencyManager.swift */; };
 		5BF356701F01FD6300ACD7F2 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3566F1F01FD6300ACD7F2 /* CartManager.swift */; };
 		5BF356711F01FD6300ACD7F2 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3566F1F01FD6300ACD7F2 /* CartManager.swift */; };
 		5BF550281EFC3580008D02E0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF550271EFC3580008D02E0 /* QuartzCore.framework */; };
@@ -101,7 +107,6 @@
 		5B22DFE81EFFC6D90030E07B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5B22DFEB1EFFCC4B0030E07B /* AppConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppConfig.json; sourceTree = "<group>"; };
 		5B22DFF81F015E300030E07B /* ShopLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopLabel.swift; sourceTree = "<group>"; };
-		5B22DFFF1F02CBE60030E07B /* BadgeButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeButtonItem.swift; sourceTree = "<group>"; };
 		5B22E0021F02CEBF0030E07B /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B22E0031F02CEBF0030E07B /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B22E0041F02CEBF0030E07B /* ShopProduct+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShopProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -122,9 +127,13 @@
 		5B2AE54D1EFBF81300AF4A86 /* UIResponder+IsPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+IsPad.swift"; sourceTree = "<group>"; };
 		5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigurationManager.swift; sourceTree = "<group>"; };
 		5B7320A01F061A80000948E5 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		5B7320A41F06257A000948E5 /* CheckoutHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutHeader.swift; sourceTree = "<group>"; };
-		5B7320A51F06257A000948E5 /* CheckoutHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutHeader.xib; sourceTree = "<group>"; };
-		5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyApiManager.swift; sourceTree = "<group>"; };
+		5B7320A51F06257A000948E5 /* CheckoutHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutHeaderView.xib; sourceTree = "<group>"; };
+		5BB3EEB11F078E6700809C6D /* CheckoutHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutHeaderView.swift; sourceTree = "<group>"; };
+		5BB3EEB51F07A0D700809C6D /* CurrencyPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyPickerViewController.swift; sourceTree = "<group>"; };
+		5BB3EEBF1F07BFE800809C6D /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		5BB3EEC31F08EF3500809C6D /* UIView+Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Copy.swift"; sourceTree = "<group>"; };
+		5BB3EEC61F08F4AF00809C6D /* NavigationController+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationController+Animation.swift"; sourceTree = "<group>"; };
+		5BD25EC61EFFAA0500591645 /* CurrencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		5BF3566F1F01FD6300ACD7F2 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		5BF550271EFC3580008D02E0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5BF5502A1EFE4D73008D02E0 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
@@ -240,6 +249,7 @@
 				5B22DFF71F015E300030E07B /* Components */,
 				5B2AE54C1EFBF7B400AF4A86 /* Extensions */,
 				5BF5502D1EFE4E40008D02E0 /* Theme */,
+				5BB3EEBB1F07BF6E00809C6D /* AlertManager */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -247,9 +257,10 @@
 		5B2AE53B1EFBF42E00AF4A86 /* CartViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5BB3EEB41F07A0C600809C6D /* CurrencyPicker */,
 				5B7320A31F062564000948E5 /* Header */,
 				5BF3566E1F01FD2300ACD7F2 /* Logic */,
-				5BF550551EFE78B2008D02E0 /* Cells */,
+				5BF550551EFE78B2008D02E0 /* Cell */,
 				5BF550521EFE77B7008D02E0 /* CartViewController.swift */,
 			);
 			path = CartViewController;
@@ -291,7 +302,8 @@
 				5BF550491EFE61BD008D02E0 /* UIColor+Shop.swift */,
 				5BF5504C1EFE633B008D02E0 /* UIFont+Shop.swift */,
 				5B22DFE51EFFC64C0030E07B /* UIImageView+LoadAndCache.swift */,
-				5B22DFFF1F02CBE60030E07B /* BadgeButtonItem.swift */,
+				5BB3EEC31F08EF3500809C6D /* UIView+Copy.swift */,
+				5BB3EEC61F08F4AF00809C6D /* NavigationController+Animation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,10 +322,26 @@
 		5B7320A31F062564000948E5 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				5B7320A41F06257A000948E5 /* CheckoutHeader.swift */,
-				5B7320A51F06257A000948E5 /* CheckoutHeader.xib */,
+				5BB3EEB11F078E6700809C6D /* CheckoutHeaderView.swift */,
+				5B7320A51F06257A000948E5 /* CheckoutHeaderView.xib */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		5BB3EEB41F07A0C600809C6D /* CurrencyPicker */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3EEB51F07A0D700809C6D /* CurrencyPickerViewController.swift */,
+			);
+			path = CurrencyPicker;
+			sourceTree = "<group>";
+		};
+		5BB3EEBB1F07BF6E00809C6D /* AlertManager */ = {
+			isa = PBXGroup;
+			children = (
+				5BB3EEBF1F07BFE800809C6D /* AlertManager.swift */,
+			);
+			path = AlertManager;
 			sourceTree = "<group>";
 		};
 		5BD25EC51EFFA9DA00591645 /* API */ = {
@@ -321,7 +349,7 @@
 			children = (
 				5B22DFEB1EFFCC4B0030E07B /* AppConfig.json */,
 				5B7320A01F061A80000948E5 /* Currency.swift */,
-				5BD25EC61EFFAA0500591645 /* CurrencyApiManager.swift */,
+				5BD25EC61EFFAA0500591645 /* CurrencyManager.swift */,
 				5B7199E31EFFBFA2004E6F8C /* AppConfigurationManager.swift */,
 			);
 			name = API;
@@ -358,13 +386,12 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		5BF550551EFE78B2008D02E0 /* Cells */ = {
+		5BF550551EFE78B2008D02E0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				5BF550561EFE78CC008D02E0 /* CartTableViewCell.swift */,
 				5BF550571EFE78CC008D02E0 /* CartTableViewCell.xib */,
 			);
-			name = Cells;
 			path = Cell;
 			sourceTree = "<group>";
 		};
@@ -454,7 +481,7 @@
 			files = (
 				5B2AE54A1EFBF68D00AF4A86 /* ShopCollectionViewCell.xib in Resources */,
 				5B2AE5191EFBF31400AF4A86 /* LaunchScreen.storyboard in Resources */,
-				5B7320A81F06257A000948E5 /* CheckoutHeader.xib in Resources */,
+				5B7320A81F06257A000948E5 /* CheckoutHeaderView.xib in Resources */,
 				5BF5505A1EFE78CC008D02E0 /* CartTableViewCell.xib in Resources */,
 				5B2AE5111EFBF31400AF4A86 /* Main.storyboard in Resources */,
 				5B2AE53F1EFBF44F00AF4A86 /* Assets.xcassets in Resources */,
@@ -466,7 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B7320A91F06257A000948E5 /* CheckoutHeader.xib in Resources */,
+				5B7320A91F06257A000948E5 /* CheckoutHeaderView.xib in Resources */,
 				5B2AE54B1EFBF68D00AF4A86 /* ShopCollectionViewCell.xib in Resources */,
 				5B2AE5401EFBF44F00AF4A86 /* Assets.xcassets in Resources */,
 				5B22DFED1EFFCC4B0030E07B /* AppConfig.json in Resources */,
@@ -492,26 +519,29 @@
 				5B22E00C1F02CEBF0030E07B /* ShopProduct+CoreDataProperties.swift in Sources */,
 				5BF550421EFE5112008D02E0 /* ThemeLargePhone.swift in Sources */,
 				5B2AE5361EFBF38000AF4A86 /* AppDelegate.swift in Sources */,
-				5B7320A61F06257A000948E5 /* CheckoutHeader.swift in Sources */,
 				5BF5504A1EFE61BD008D02E0 /* UIColor+Shop.swift in Sources */,
 				5B22E00A1F02CEBF0030E07B /* ShopProduct+CoreDataClass.swift in Sources */,
 				5BF5504D1EFE633B008D02E0 /* UIFont+Shop.swift in Sources */,
 				5BF5502B1EFE4D73008D02E0 /* UIDevice+Helpers.swift in Sources */,
 				5BF5503E1EFE5112008D02E0 /* ThemeCompactPhone.swift in Sources */,
 				5BF550471EFE60F9008D02E0 /* UIColorExtension.swift in Sources */,
-				5BD25EC71EFFAA0500591645 /* CurrencyApiManager.swift in Sources */,
+				5BD25EC71EFFAA0500591645 /* CurrencyManager.swift in Sources */,
+				5BB3EEC41F08EF3500809C6D /* UIView+Copy.swift in Sources */,
 				5BF550351EFE5030008D02E0 /* ThemeDefault.swift in Sources */,
 				5B2AE5421EFBF48000AF4A86 /* ShopViewController.swift in Sources */,
-				5B22E0001F02CBE60030E07B /* BadgeButtonItem.swift in Sources */,
+				5BB3EEC71F08F4AF00809C6D /* NavigationController+Animation.swift in Sources */,
 				5BF550581EFE78CC008D02E0 /* CartTableViewCell.swift in Sources */,
 				5B22DFF91F015E300030E07B /* ShopLabel.swift in Sources */,
 				5BF550441EFE5112008D02E0 /* ThemeMediumPhone.swift in Sources */,
+				5BB3EEC01F07BFE800809C6D /* AlertManager.swift in Sources */,
 				5B2AE54E1EFBF81300AF4A86 /* UIResponder+IsPad.swift in Sources */,
 				5BF5502F1EFE4E5D008D02E0 /* ThemeManager.swift in Sources */,
+				5BB3EEB71F07A0D700809C6D /* CurrencyPickerViewController.swift in Sources */,
 				5B22DFE91EFFC6D90030E07B /* CoreDataStack.swift in Sources */,
 				5BF550531EFE77B7008D02E0 /* CartViewController.swift in Sources */,
 				5B7199E41EFFBFA3004E6F8C /* AppConfigurationManager.swift in Sources */,
 				5BF550401EFE5112008D02E0 /* ThemeIPadDefault.swift in Sources */,
+				5BB3EEB21F078E6700809C6D /* CheckoutHeaderView.swift in Sources */,
 				5B22DFE61EFFC64C0030E07B /* UIImageView+LoadAndCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,15 +558,17 @@
 				5BF550451EFE5112008D02E0 /* ThemeMediumPhone.swift in Sources */,
 				5BF5502C1EFE4D73008D02E0 /* UIDevice+Helpers.swift in Sources */,
 				5BF550361EFE5030008D02E0 /* ThemeDefault.swift in Sources */,
-				5BD25EC81EFFAA0500591645 /* CurrencyApiManager.swift in Sources */,
+				5BB3EEC51F08EF3500809C6D /* UIView+Copy.swift in Sources */,
+				5BD25EC81EFFAA0500591645 /* CurrencyManager.swift in Sources */,
 				5BF550591EFE78CC008D02E0 /* CartTableViewCell.swift in Sources */,
 				5B2AE5431EFBF48000AF4A86 /* ShopViewController.swift in Sources */,
 				5B22DFE71EFFC64C0030E07B /* UIImageView+LoadAndCache.swift in Sources */,
 				5BF550411EFE5112008D02E0 /* ThemeIPadDefault.swift in Sources */,
+				5BB3EEB31F078E6700809C6D /* CheckoutHeaderView.swift in Sources */,
+				5BB3EEB81F07A0D700809C6D /* CurrencyPickerViewController.swift in Sources */,
 				5B7320A21F061A80000948E5 /* Currency.swift in Sources */,
-				5B7320A71F06257A000948E5 /* CheckoutHeader.swift in Sources */,
 				5BF550541EFE77B7008D02E0 /* CartViewController.swift in Sources */,
-				5B22E0011F02CBE60030E07B /* BadgeButtonItem.swift in Sources */,
+				5BB3EEC11F07BFE800809C6D /* AlertManager.swift in Sources */,
 				5BF550481EFE60F9008D02E0 /* UIColorExtension.swift in Sources */,
 				5B22E0071F02CEBF0030E07B /* CartItem+CoreDataClass.swift in Sources */,
 				5BF550301EFE4E5D008D02E0 /* ThemeManager.swift in Sources */,
@@ -547,6 +579,7 @@
 				5B7199E51EFFBFA3004E6F8C /* AppConfigurationManager.swift in Sources */,
 				5B22DFFA1F015E300030E07B /* ShopLabel.swift in Sources */,
 				5B2AE5491EFBF68D00AF4A86 /* ShopCollectionViewCell.swift in Sources */,
+				5BB3EEC81F08F4AF00809C6D /* NavigationController+Animation.swift in Sources */,
 				5B2AE5241EFBF31400AF4A86 /* R3PI_ShopTests.swift in Sources */,
 				5B2AE5351EFBF38000AF4A86 /* R3PI_Shop.xcdatamodeld in Sources */,
 				5B22E00D1F02CEBF0030E07B /* ShopProduct+CoreDataProperties.swift in Sources */,
