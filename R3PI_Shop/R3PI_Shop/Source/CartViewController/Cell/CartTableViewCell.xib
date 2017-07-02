@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="KGk-i7-Jjw" customClass="CartTableViewCell" customModule="R3PI_Shop" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="368" height="121"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="368" height="120.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -96,6 +96,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TQM-WH-FSP">
+                        <rect key="frame" x="10" y="119.5" width="348" height="1"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.1022875992" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="iLl-ve-6dn"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.11537197320000001" green="1" blue="0.19170412649999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
@@ -111,6 +118,9 @@
                     <constraint firstItem="GUM-v2-ZL0" firstAttribute="leading" secondItem="h1f-PP-ZAt" secondAttribute="trailing" constant="15" id="ZwQ-db-xEv"/>
                     <constraint firstItem="Z9o-2M-HHo" firstAttribute="leading" secondItem="EnI-ET-TOs" secondAttribute="trailing" constant="10" id="a6h-As-gDV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Qa-Kh-sPH" secondAttribute="trailing" constant="2.5" id="ama-cx-E3n"/>
+                    <constraint firstAttribute="bottom" secondItem="TQM-WH-FSP" secondAttribute="bottom" id="at3-HY-LLh"/>
+                    <constraint firstItem="TQM-WH-FSP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="f5G-pj-sjU"/>
+                    <constraint firstAttribute="trailing" secondItem="TQM-WH-FSP" secondAttribute="trailing" constant="10" id="lXs-Vr-UOv"/>
                     <constraint firstItem="3qE-UO-Yns" firstAttribute="top" secondItem="1Qa-Kh-sPH" secondAttribute="bottom" constant="11" id="nYH-bU-f76"/>
                     <constraint firstItem="5mv-R4-jhA" firstAttribute="top" secondItem="1Qa-Kh-sPH" secondAttribute="bottom" constant="5" id="oMp-d6-NZf"/>
                     <constraint firstItem="1Qa-Kh-sPH" firstAttribute="leading" secondItem="Z9o-2M-HHo" secondAttribute="trailing" constant="5" id="rA2-Qu-NfL"/>
@@ -120,11 +130,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cellDeviderLine" destination="TQM-WH-FSP" id="Mf2-8r-xPD"/>
                 <outlet property="decreaseButton" destination="h1f-PP-ZAt" id="EUB-h6-fSU"/>
-                <outlet property="deviderLine" destination="5mv-R4-jhA" id="uEy-hB-0of"/>
                 <outlet property="imageViewLeftConstraintToSuperView" destination="E8U-9n-1K2" id="JiC-uu-2xR"/>
                 <outlet property="imageViewWidthConstraint" destination="HAO-UI-nLe" id="Fig-Jc-EuX"/>
                 <outlet property="increaseButton" destination="GUM-v2-ZL0" id="fNM-w8-XB6"/>
+                <outlet property="priceDeviderLine" destination="5mv-R4-jhA" id="Y5p-gP-TBK"/>
                 <outlet property="priceLabel" destination="1Qa-Kh-sPH" id="hVb-Tj-NCI"/>
                 <outlet property="priceTotalLabel" destination="3qE-UO-Yns" id="wKs-z6-vg8"/>
                 <outlet property="productImageView" destination="EnI-ET-TOs" id="u5o-0C-VeV"/>

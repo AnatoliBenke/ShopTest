@@ -33,7 +33,8 @@ class CartTableViewCell: UITableViewCell {
     // ==========================================================================
     
     @IBOutlet fileprivate weak var productImageView:    UIImageView!
-    @IBOutlet fileprivate weak var deviderLine:         UIImageView!
+    @IBOutlet fileprivate weak var priceDeviderLine:    UIImageView!
+    @IBOutlet fileprivate weak var cellDeviderLine:     UIImageView!
     
     @IBOutlet fileprivate weak var titleLabel:          UILabel!
     @IBOutlet fileprivate weak var subTitleLabel:       UILabel!
@@ -44,8 +45,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var decreaseButton:      UIButton!
     @IBOutlet fileprivate weak var increaseButton:      UIButton!
     
-    @IBOutlet fileprivate var imageViewWidthConstraint : NSLayoutConstraint!
-    @IBOutlet fileprivate var imageViewLeftConstraintToSuperView : NSLayoutConstraint!
+    @IBOutlet fileprivate var imageViewWidthConstraint:             NSLayoutConstraint!
+    @IBOutlet fileprivate var imageViewLeftConstraintToSuperView:   NSLayoutConstraint!
     
     // ==========================================================================
     // MARK: - Properties
@@ -62,24 +63,6 @@ class CartTableViewCell: UITableViewCell {
        
         self.setupTheme()
     }
-    
-    fileprivate func setupTheme() {
-//        ThemeManager.inAppPurchaseProductsTableViewControllerCellPriceButtonRegularStyle(self.priceButton)
-//        ThemeManager.inAppPurchaseProductsTableViewControllerCellContentViewStyle(self.contentView)
-//        ThemeManager.inAppPurchaseProductsTableViewControllerCellTitleLabelStyle(self.titleLabel)
-//        ThemeManager.inAppPurchaseProductsTableViewControllerCellSubTitleLabelStyle(self.subTitleLabel)
-//        ThemeManager.inAppPurchaseProductsTableViewControllerCellDeviderViewStyle(self.deviderLine)
-        
-//        self.productImageView
-//        self.deviderLine
-//        self.titleLabel
-//        self.subTitleLabel
-//        self.priceLabel
-//        self.priceTotalLabel
-//        self.amountLabel
-//        self.decreaseButton
-//        self.increaseButton
-    }
 
     func setupCell(with cartItem: CartItem, cartMode: CartMode) {
         
@@ -87,29 +70,43 @@ class CartTableViewCell: UITableViewCell {
         self.layout(for: cartMode)
     }
     
+    // ==========================================================================
+    // MARK: - Private Methods
+    // ==========================================================================
+    
+    fileprivate func setupTheme() {
+        
+        ThemeManager.cartTableViewCellStyle(self)
+        ThemeManager.cartTableViewCellImageViewStyle(self.productImageView)
+        ThemeManager.cartTableViewPriceDeviderImageViewStyle(self.priceDeviderLine)
+        ThemeManager.cartTableViewCellCellDeviderImageViewStyle(self.cellDeviderLine)
+        
+        ThemeManager.cartTableViewCellStyle(self)
+        ThemeManager.cartTableViewCellTitleLabelStyle(self.titleLabel)
+        ThemeManager.cartTableViewCellSubTitleLabelStyle(self.subTitleLabel)
+        
+        ThemeManager.cartTableViewCellPriceTotalLabelStyle(self.priceTotalLabel)
+        ThemeManager.cartTableViewCellPriceLabelStyle(self.priceLabel)
+        
+        ThemeManager.cartTableViewCellDecreaseButtonStyle(self.decreaseButton)
+        ThemeManager.cartTableViewCellIncreaseButtonStyle(self.increaseButton)
+    }
+    
     fileprivate func layout(for cartMode: CartMode) {
         
         switch cartMode {
         case .modify:
                 self.layoutModeModify()
-            break
         case .checkout:
                 self.layoutModeCheckout()
-            break
-        default:
-            self.layoutModeModify()
         }
     }
     
-    
     fileprivate func setupContent(with cartItem: CartItem, cartMode: CartMode) {
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = NumberFormatter.Style.currency
-        formatter.currencyCode = CurrencyApiManager.sharedInstance.sourceCurrency
-        
         if let price = cartItem.product?.price {
-            if let piecePrice = formatter.string(from: NSNumber(value: price)) {
+            if let piecePrice = CurrencyManager.sharedInstance.currencyString(with: Double(price), currencyCode: CurrencyManager.sharedInstance.sourceCurrency!) {
+                
                 var priceLabelText: String = ""
                 
                 let connectorSymbol = " x "
@@ -127,7 +124,7 @@ class CartTableViewCell: UITableViewCell {
                     priceLabelText += "\(piecePrice)"
                     priceLabelText += resultSymbol
                     
-                    if let totalprice = formatter.string(from: NSNumber(value: price * Float(cartItem.amount))) {
+                    if let totalprice = CurrencyManager.sharedInstance.currencyString(with: Double(price * Float(cartItem.amount)), currencyCode: CurrencyManager.sharedInstance.sourceCurrency!) {
                         priceLabelText += totalprice
                     }
                     break
@@ -139,19 +136,19 @@ class CartTableViewCell: UITableViewCell {
                 self.priceLabel.text = ""
             }
             
-            if let totalprice = formatter.string(from: NSNumber(value: price * Float(cartItem.amount))) {
+            if let totalprice = CurrencyManager.sharedInstance.currencyString(with: Double(Double(price * Float(cartItem.amount))), currencyCode: CurrencyManager.sharedInstance.sourceCurrency!) {
                 self.priceTotalLabel.text = totalprice
             }
             else {
                 self.priceTotalLabel.text = ""
             }
             
-            self.deviderLine.isHidden = false
+            self.priceDeviderLine.isHidden = false
         }
         else {
             self.priceLabel.text = ""
             self.priceTotalLabel.text = ""
-            self.deviderLine.isHidden = true
+            self.priceDeviderLine.isHidden = true
         }
         
         
@@ -180,7 +177,7 @@ class CartTableViewCell: UITableViewCell {
     
     fileprivate func layoutModeModify() {
         self.productImageView.isHidden = false
-        self.deviderLine.isHidden = false
+        self.priceDeviderLine.isHidden = false
         self.titleLabel.isHidden = false
         self.subTitleLabel.isHidden = false
         self.priceLabel.isHidden = false
@@ -194,7 +191,7 @@ class CartTableViewCell: UITableViewCell {
     
     fileprivate func layoutModeCheckout() {
         self.productImageView.isHidden = true
-        self.deviderLine.isHidden = true
+        self.priceDeviderLine.isHidden = true
         self.subTitleLabel.isHidden = true
         self.priceTotalLabel.isHidden = true
         self.decreaseButton.isHidden = true

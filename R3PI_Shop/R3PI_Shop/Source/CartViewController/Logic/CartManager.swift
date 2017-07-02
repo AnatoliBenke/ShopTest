@@ -17,6 +17,10 @@ class CartManager: NSObject {
     
     static let sharedInstance = CartManager()
     
+    // ==========================================================================
+    // MARK: - Variables
+    // ==========================================================================
+    
     var badgebutton: UIBarButtonItem?
     
     // ==========================================================================
@@ -41,6 +45,10 @@ class CartManager: NSObject {
                 self.remove(cartItem: existingCartItemForProduct)
             }
         }
+    }
+    
+    func clearCart() {
+        CoreDataStack.sharedInstance.clearCartItemData()
     }
     
     func remove(cartItem: CartItem) {

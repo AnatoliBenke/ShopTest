@@ -36,7 +36,7 @@ class CartViewController: UIViewController {
     //MARK:- Variables
     //==========================================================================
     
-    lazy var fetchedhResultController: NSFetchedResultsController<NSFetchRequestResult> = {
+    lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: CartItem.self))
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "product.title", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -44,9 +44,24 @@ class CartViewController: UIViewController {
         return frc
     }()
     
-    var mode: CartMode = .modify
+    var mode: CartMode = .modify {
+        didSet {
+            switch mode {
+            case .modify:
+                
+                self.tableView.tableHeaderView = nil
+            case .checkout:
+                self.tableView.tableHeaderView = self.setupCheckoutHeaderView()
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
     
-    var checkoutHeaderView: CheckoutHeader?
+    var checkoutHeaderView: CheckoutHeaderView?
+    var cartCurrencyCode: String = CurrencyManager.sharedInstance.sourceCurrency ?? "USD"
+    
+    var currencyPickerViewController: CurrencyPickerViewController?
     
     // ==========================================================================
     // MARK: - UIViewController Methods
@@ -63,55 +78,100 @@ class CartViewController: UIViewController {
         
         self.title = "Shopping Cart"
         
+        self.setupTheme()
         self.setupNavigationBarItems()
-        
-        self.automaticallyAdjustsScrollViewInsets = false
 
         self.tableView.register(UINib(nibName: CartTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: CartTableViewCell.cellReuseID)
         
         do {
-            try self.fetchedhResultController.performFetch()
+            try self.fetchedResultController.performFetch()
+            if self.fetchedResultController.fetchedObjects?.count == 0 {
+                AlertManager.showSingleButtonAlertView(from: self, title: "Shoppingcart is empty", message: "Please add products to your cart to be able to proceed")
+            }
             self.tableView.reloadData()
         }
         catch let error {
             print(error)
         }
-        
-        
-        //self.setupCheckoutHeaderView()
     }
     
-    fileprivate func setupCheckoutHeaderView() {
-        self.checkoutHeaderView = CheckoutHeader.newInstance()
-        self.checkoutHeaderView?.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.tableView.frame.width, height: self.isPad() ? CheckoutHeader.Constants.HeightiPad : CheckoutHeader.Constants.Height))
-        self.tableView.tableHeaderView = self.checkoutHeaderView
+    // ==========================================================================
+    // MARK: - Private Methods
+    // ==========================================================================
+    
+    fileprivate func setupTheme() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
+        
+        self.view.backgroundColor = UIColor.defaultViewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.clear
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    fileprivate func setupCheckoutHeaderView() -> UIView {
+        
+        let checkoutHeaderViewInstance = CheckoutHeaderView.newInstance()
+        checkoutHeaderViewInstance.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.tableView.frame.width, height: self.isPad() ? CheckoutHeaderView.Constants.HeightiPad : CheckoutHeaderView.Constants.Height))
+        
+        checkoutHeaderViewInstance.updateHeaderView(with: self.calculateTotalCartValue(), currencyCode: self.cartCurrencyCode)
+
+        checkoutHeaderViewInstance.delegate = self
+        
+        self.checkoutHeaderView = checkoutHeaderViewInstance
+        
+        return checkoutHeaderViewInstance
     }
     
     fileprivate func setupNavigationBarItems() {
+        
+        // Left
         let backButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.closeButtonPressed))
+        backButton.tintColor = UIColor.defaultCtaColor()
         
         self.navigationItem.leftBarButtonItems = [backButton]
         
+        // Right
+        let modeButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.switchToModeCheckout))
+        modeButton.tintColor = UIColor.defaultCtaColor()
         
-        let modeButton1 = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.switchToModeCheckout))
-        
-        let modeButton2 = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.switchToModeModify))
-        
-        self.navigationItem.rightBarButtonItems = [modeButton1, modeButton2]
+        self.navigationItem.rightBarButtonItems = [modeButton]
     }
     
     @objc fileprivate func closeButtonPressed() {
         self.dismiss(animated: true)
     }
     
-    @objc fileprivate func switchToModeModify() {
-        self.mode = .modify
-        self.tableView.reloadData()
-    }
-    
     @objc fileprivate func switchToModeCheckout() {
         self.mode = .checkout
-        self.tableView.reloadData()
+    }
+    
+    fileprivate func calculateTotalCartValue() -> Double {
+        var totalValue: Double = 0.0
+        if let allItems = self.fetchedResultController.fetchedObjects as? [CartItem]{
+            for cartItem in allItems {
+                if let price = cartItem.product?.price {
+                    totalValue += Double(Float(cartItem.amount) * price)
+                }
+            }
+        }
+        
+        return totalValue
+    }
+    
+    fileprivate func updateHeaderView() {
+        self.checkoutHeaderView?.updateHeaderView(with: self.calculateTotalCartValue(), currencyCode: self.cartCurrencyCode)
+    }
+    
+    fileprivate func finishPurchase() {
+        
+        // Remove delegate to ignore unwanted callbacks
+        self.fetchedResultController.delegate = nil
+        
+        // Clear cart
+        CartManager.sharedInstance.clearCart()
+        
+        // Close ViewController
+        self.closeButtonPressed()
     }
 }
 
@@ -126,14 +186,14 @@ extension CartViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.fetchedhResultController.fetchedObjects?.count ?? 0
+        return self.fetchedResultController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.cellReuseID, for: indexPath) as! CartTableViewCell
         
-        if let cartItem = self.fetchedhResultController.fetchedObjects?[indexPath.row] as? CartItem {
+        if let cartItem = self.fetchedResultController.fetchedObjects?[indexPath.row] as? CartItem {
             cell.setupCell(with: cartItem, cartMode: self.mode)
             cell.delegate = self
         }
@@ -198,7 +258,7 @@ extension CartViewController : CartTableViewCellDelegate {
     
     func didPressIncreaseAmountButton(on cell: CartTableViewCell) {
         if let indexPath = self.tableView.indexPath(for: cell) {
-            if let cartItem = self.fetchedhResultController.fetchedObjects?[indexPath.row] as? CartItem {
+            if let cartItem = self.fetchedResultController.fetchedObjects?[indexPath.row] as? CartItem {
                 cartItem.amount += 1
             }
         }
@@ -206,7 +266,7 @@ extension CartViewController : CartTableViewCellDelegate {
     
     func didPressDecreaseAmountButton(on cell: CartTableViewCell) {
         if let indexPath = self.tableView.indexPath(for: cell) {
-            if let cartItem = self.fetchedhResultController.fetchedObjects?[indexPath.row] as? CartItem {
+            if let cartItem = self.fetchedResultController.fetchedObjects?[indexPath.row] as? CartItem {
                 cartItem.amount -= 1
                 
                 if cartItem.amount == 0 {
@@ -215,6 +275,98 @@ extension CartViewController : CartTableViewCellDelegate {
             }
         }
     }
-    
 }
 
+//==========================================================================
+//MARK:- CheckoutHeaderViewDelegate
+//==========================================================================
+
+extension CartViewController : CheckoutHeaderViewDelegate {
+    func didPressCancelButton() {
+        self.hidePickerView()
+        self.mode = .modify
+    }
+    
+    func didPressProceedButton() {
+        AlertManager.showSingleButtonAlertView(from: self, title: "Thanks for shopping with us!", message: "We know where you live and the purchased amount has already been deducted from your credit card, don't worry! We got this ;)") {
+            self.finishPurchase()
+        }
+    }
+    
+    func didPressChangeCurrencyButton() {
+        self.presentCurrencyPicker()
+    }
+    
+    func errorLoadingExchangeRates(error: Error) {
+        AlertManager.showSingleButtonAlertView(from: self, title: "Error", message: "Could not load exchange values for different currencies. Please make sure you are connected to the Internet")
+    }
+}
+
+//==========================================================================
+//MARK:- CurrencyPickerViewController related Methods
+//==========================================================================
+
+extension CartViewController {
+    
+    fileprivate func presentCurrencyPicker(animated: Bool = true) {
+        if self.currencyPickerViewController == nil {
+            if let allCurrencies = CurrencyManager.sharedInstance.availableCurrencies {
+                self.currencyPickerViewController = CurrencyPickerViewController.newInstance(with: allCurrencies, delegate: self)
+            }
+        }
+        
+        guard let picker = self.currencyPickerViewController else { return }
+        
+        if picker.view.superview == nil {
+            picker.view.frame = self.pickerHiddenFrame()
+            
+            self.view.addSubview(picker.view)
+            picker.preselect(currency: self.cartCurrencyCode)
+        }
+        
+        picker.view.isHidden = false
+        
+        let animationDuration = animated ? 0.3 : 0
+        UIView.animate(withDuration: animationDuration) {
+            picker.view.frame = self.pickerPresentedFrame()
+        }
+    }
+    
+    fileprivate func hidePickerView(animated: Bool = true) {
+        guard let picker = self.currencyPickerViewController else { return }
+        
+        let animationDuration = animated ? 0.3 : 0
+        UIView.animate(withDuration: animationDuration, animations: {
+            picker.view.frame = self.pickerHiddenFrame()
+        }) { (finished) in
+            if finished {
+                picker.view.isHidden = true
+                // Free resources
+                self.currencyPickerViewController?.view.removeFromSuperview()
+                self.currencyPickerViewController = nil
+            }
+        }
+    }
+    
+    fileprivate func pickerPresentedFrame() -> CGRect {
+        return CGRect(origin: CGPoint(x: 0, y: self.view.frame.size.height - CurrencyPickerViewController.Constants.Height), size: CGSize(width: self.view.frame.width, height: CurrencyPickerViewController.Constants.Height))
+    }
+    
+    fileprivate func pickerHiddenFrame() -> CGRect {
+        return CGRect(origin: CGPoint(x: 0, y: self.view.frame.size.height), size: CGSize(width: self.view.frame.width, height: CurrencyPickerViewController.Constants.Height))
+    }
+}
+
+//==========================================================================
+//MARK:- CurrencyPickerViewControllerDelegate
+//==========================================================================
+
+extension CartViewController : CurrencyPickerViewControllerDelegate {
+    
+    func didDidSelectCurrency(currency: String) {
+        self.cartCurrencyCode = currency
+        self.hidePickerView()
+        
+        self.updateHeaderView()
+    }
+}
