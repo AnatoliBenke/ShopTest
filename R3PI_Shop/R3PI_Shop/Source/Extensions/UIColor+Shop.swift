@@ -10,11 +10,23 @@ import UIKit
 
 extension UIColor {
 
+    class func navigationBarColor() -> UIColor {
+        return UIColor(232, 219, 137) // #E8DB89
+    }
+    
     class func defaultViewBackgroundColor() -> UIColor {
-        return UIColor(255, 255, 255) // #FFFFFF
+        return UIColor(153, 255, 137) // #99FF89
     }
     
     class func cellBackgroundColor() -> UIColor {
-        return UIColor(7, 148, 0) // #079400
+        return UIColor(232, 219, 137) // #E8DB89
+    }
+    
+    class func defaultCtaColor() -> UIColor {
+        return UIColor(248, 248, 255) // #F8F8FF
+    }
+    
+    class func defaultCtaHighlightedColor() -> UIColor {
+        return UIColor(186, 186, 191) // #BABABF
     }
 }
