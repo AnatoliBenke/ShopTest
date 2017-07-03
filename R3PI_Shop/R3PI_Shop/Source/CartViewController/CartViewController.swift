@@ -311,6 +311,7 @@ extension CartViewController : CartTableViewCellDelegate {
         if let indexPath = self.tableView.indexPath(for: cell) {
             if let cartItem = self.fetchedResultController.fetchedObjects?[indexPath.row] as? CartItem {
                 cartItem.amount += 1
+                CoreDataStack.sharedInstance.saveContext()
             }
         }
     }
