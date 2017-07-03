@@ -1,5 +1,5 @@
 //
-//  ThemeDefault.swift
+//  ThemeMediumPhone.swift
 //  R3PI_Shop
 //
 //  Created by Anatoli Benke on 24.06.17.

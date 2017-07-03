@@ -47,6 +47,7 @@ class CartTableViewCell: UITableViewCell {
     
     @IBOutlet fileprivate var imageViewWidthConstraint:             NSLayoutConstraint!
     @IBOutlet fileprivate var imageViewLeftConstraintToSuperView:   NSLayoutConstraint!
+    @IBOutlet fileprivate var titleLabelTopConstraintToImageView:   NSLayoutConstraint!
     
     // ==========================================================================
     // MARK: - Properties
@@ -186,7 +187,8 @@ class CartTableViewCell: UITableViewCell {
         self.increaseButton.isHidden = false
         
         self.imageViewWidthConstraint.constant = 100.0
-        self.imageViewLeftConstraintToSuperView.constant = 10
+        self.imageViewLeftConstraintToSuperView.constant = 10.0
+        self.titleLabelTopConstraintToImageView.constant = 20.0
     }
     
     fileprivate func layoutModeCheckout() {
@@ -201,7 +203,8 @@ class CartTableViewCell: UITableViewCell {
         self.priceLabel.isHidden = false
         
         self.imageViewWidthConstraint.constant = 0.0
-        imageViewLeftConstraintToSuperView.constant = 0.0
+        self.imageViewLeftConstraintToSuperView.constant = 0.0
+        self.titleLabelTopConstraintToImageView.constant = 0.0
     }
     
     // ==========================================================================

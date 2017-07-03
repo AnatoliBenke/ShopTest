@@ -37,6 +37,7 @@ class CartViewController: UIViewController {
     //==========================================================================
     
     lazy var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = {
+        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: CartItem.self))
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "product.title", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -48,10 +49,12 @@ class CartViewController: UIViewController {
         didSet {
             switch mode {
             case .modify:
-                
                 self.tableView.tableHeaderView = nil
+                self.setupCheckoutButton()
+                break
             case .checkout:
                 self.tableView.tableHeaderView = self.setupCheckoutHeaderView()
+                self.navigationItem.rightBarButtonItems = nil
             }
             
             self.tableView.reloadData()
@@ -125,14 +128,18 @@ class CartViewController: UIViewController {
     fileprivate func setupNavigationBarItems() {
         
         // Left
-        let backButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.closeButtonPressed))
-        backButton.tintColor = UIColor.defaultCtaColor()
+        let backButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(self.closeButtonPressed))
+        backButton.tintColor = UIColor.defaultButtonTintColor()
         
         self.navigationItem.leftBarButtonItems = [backButton]
         
+        self.setupCheckoutButton()
+    }
+    
+    fileprivate func setupCheckoutButton() {
         // Right
-        let modeButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.switchToModeCheckout))
-        modeButton.tintColor = UIColor.defaultCtaColor()
+        let modeButton = UIBarButtonItem(image: UIImage(named: "Checkout_Icon"), style: .plain, target: self, action: #selector(self.switchToModeCheckout))
+        modeButton.tintColor = UIColor.defaultButtonTintColor()
         
         self.navigationItem.rightBarButtonItems = [modeButton]
     }
@@ -168,10 +175,54 @@ class CartViewController: UIViewController {
         self.fetchedResultController.delegate = nil
         
         // Clear cart
-        CartManager.sharedInstance.clearCart()
+        CartManager.clearCart()
+        
         
         // Close ViewController
         self.closeButtonPressed()
+    }
+    
+    func deviceOrientationDidChange(notification: NSNotification?) {
+        
+        var shouldHandleRotation = false
+        
+        switch UIDevice.current.orientation {
+        case .landscapeLeft:
+            fallthrough
+        case .landscapeRight:
+            shouldHandleRotation = true
+            break
+        case .portrait:
+            fallthrough
+        case .portraitUpsideDown:
+            shouldHandleRotation = true
+            break
+        default:
+            // ignore
+            break
+        }
+        
+        if shouldHandleRotation {
+            UIView.animate(withDuration: 0.1, animations: {
+                if self.mode == .checkout {
+                    self.tableView.tableHeaderView = nil
+                    self.tableView.tableHeaderView = self.setupCheckoutHeaderView()
+                }
+                self.tableView.reloadData()
+            })
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            if self.mode == .checkout {
+                self.tableView.tableHeaderView = nil
+                self.tableView.tableHeaderView = self.setupCheckoutHeaderView()
+            }
+            self.tableView.reloadData()
+        })
     }
 }
 
@@ -267,12 +318,25 @@ extension CartViewController : CartTableViewCellDelegate {
     func didPressDecreaseAmountButton(on cell: CartTableViewCell) {
         if let indexPath = self.tableView.indexPath(for: cell) {
             if let cartItem = self.fetchedResultController.fetchedObjects?[indexPath.row] as? CartItem {
-                cartItem.amount -= 1
+                let newAmount = cartItem.amount - 1
                 
-                if cartItem.amount == 0 {
-                    CoreDataStack.sharedInstance.delete(cartItem: cartItem)
+                if newAmount == 0 {
+                   self.showDeleteAlertForLastItem(lastItem: cartItem)
+                }
+                else {
+                    cartItem.amount = newAmount
+                    CoreDataStack.sharedInstance.saveContext()
                 }
             }
+        }
+    }
+    
+    func showDeleteAlertForLastItem(lastItem: CartItem) {
+        if let productTitle = lastItem.product?.title {
+            AlertManager.showDoubleButtonAlertView(from: self, title: "Delete product?", message: "You are about to lower the amount of \(productTitle) to 0. This will remove this product from your shopping cart.", actionButtonAction: {
+                CoreDataStack.sharedInstance.delete(cartItem: lastItem)
+                CoreDataStack.sharedInstance.saveContext()
+            })
         }
     }
 }
@@ -288,6 +352,7 @@ extension CartViewController : CheckoutHeaderViewDelegate {
     }
     
     func didPressProceedButton() {
+        
         AlertManager.showSingleButtonAlertView(from: self, title: "Thanks for shopping with us!", message: "We know where you live and the purchased amount has already been deducted from your credit card, don't worry! We got this ;)") {
             self.finishPurchase()
         }

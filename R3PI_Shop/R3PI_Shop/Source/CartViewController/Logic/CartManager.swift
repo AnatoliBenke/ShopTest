@@ -12,22 +12,10 @@ import CoreData
 class CartManager: NSObject {
 
     // ==========================================================================
-    // MARK: - Shared Instance
-    // ==========================================================================
-    
-    static let sharedInstance = CartManager()
-    
-    // ==========================================================================
-    // MARK: - Variables
-    // ==========================================================================
-    
-    var badgebutton: UIBarButtonItem?
-    
-    // ==========================================================================
     // MARK: - Managing Methods
     // ==========================================================================
     
-    func add(product: ShopProduct) {
+    class func add(product: ShopProduct) {
         if let existingCartItemForProduct = CoreDataStack.sharedInstance.getCartItem(for: product) {
             existingCartItemForProduct.amount += 1
         }
@@ -37,7 +25,7 @@ class CartManager: NSObject {
         CoreDataStack.sharedInstance.saveContext()
     }
     
-    func remove(product: ShopProduct) {
+    class func remove(product: ShopProduct) {
         if let existingCartItemForProduct = CoreDataStack.sharedInstance.getCartItem(for: product) {
             existingCartItemForProduct.amount -= 1
             
@@ -47,11 +35,11 @@ class CartManager: NSObject {
         }
     }
     
-    func clearCart() {
+    class func clearCart() {
         CoreDataStack.sharedInstance.clearCartItemData()
     }
     
-    func remove(cartItem: CartItem) {
+    class func remove(cartItem: CartItem) {
         CoreDataStack.sharedInstance.delete(cartItem: cartItem)
         CoreDataStack.sharedInstance.saveContext()
     }

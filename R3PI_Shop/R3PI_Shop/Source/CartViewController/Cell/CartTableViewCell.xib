@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="368" height="121"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="368" height="120.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="368" height="121"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EnI-ET-TOs">
@@ -28,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x $ 22,65" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-Kh-sPH">
-                        <rect key="frame" x="285" y="10" width="72.5" height="20"/>
+                        <rect key="frame" x="285.5" y="10" width="72.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="K2K-eU-LwD"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="t5R-go-yG6"/>
@@ -57,16 +56,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Beans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-2M-HHo">
-                        <rect key="frame" x="120" y="10" width="160" height="20"/>
+                        <rect key="frame" x="120" y="30" width="160.5" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="ZTE-gE-Rh0"/>
+                            <constraint firstAttribute="height" constant="25" id="ZTE-gE-Rh0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="per can" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIN-cV-nNM">
-                        <rect key="frame" x="120" y="40" width="57.5" height="20"/>
+                        <rect key="frame" x="120" y="65" width="57.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="gUn-oe-VPx"/>
                         </constraints>
@@ -98,7 +97,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TQM-WH-FSP">
                         <rect key="frame" x="10" y="119.5" width="348" height="1"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.1022875992" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.81568627450980391" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="iLl-ve-6dn"/>
                         </constraints>
@@ -111,22 +110,22 @@
                     <constraint firstAttribute="bottom" secondItem="h1f-PP-ZAt" secondAttribute="bottom" constant="10" id="644-v1-2ja"/>
                     <constraint firstAttribute="trailing" secondItem="GUM-v2-ZL0" secondAttribute="trailing" constant="10" id="7BL-fr-BYD"/>
                     <constraint firstItem="CIN-cV-nNM" firstAttribute="leading" secondItem="EnI-ET-TOs" secondAttribute="trailing" constant="10" id="CPm-2H-huu"/>
-                    <constraint firstItem="1Qa-Kh-sPH" firstAttribute="top" secondItem="Z9o-2M-HHo" secondAttribute="top" id="Dv5-Fj-cb1"/>
                     <constraint firstItem="EnI-ET-TOs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="E8U-9n-1K2"/>
+                    <constraint firstItem="1Qa-Kh-sPH" firstAttribute="top" secondItem="EnI-ET-TOs" secondAttribute="top" id="Elr-ZN-tjw"/>
                     <constraint firstAttribute="bottom" secondItem="GUM-v2-ZL0" secondAttribute="bottom" constant="10" id="MSj-Yq-i2m"/>
                     <constraint firstItem="CIN-cV-nNM" firstAttribute="top" secondItem="Z9o-2M-HHo" secondAttribute="bottom" constant="10" id="U5v-y9-Gyd"/>
                     <constraint firstItem="GUM-v2-ZL0" firstAttribute="leading" secondItem="h1f-PP-ZAt" secondAttribute="trailing" constant="15" id="ZwQ-db-xEv"/>
                     <constraint firstItem="Z9o-2M-HHo" firstAttribute="leading" secondItem="EnI-ET-TOs" secondAttribute="trailing" constant="10" id="a6h-As-gDV"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="1Qa-Kh-sPH" secondAttribute="trailing" constant="2.5" id="ama-cx-E3n"/>
                     <constraint firstAttribute="bottom" secondItem="TQM-WH-FSP" secondAttribute="bottom" id="at3-HY-LLh"/>
                     <constraint firstItem="TQM-WH-FSP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="f5G-pj-sjU"/>
+                    <constraint firstAttribute="trailing" secondItem="1Qa-Kh-sPH" secondAttribute="trailing" constant="10" id="gz1-2l-CYV"/>
                     <constraint firstAttribute="trailing" secondItem="TQM-WH-FSP" secondAttribute="trailing" constant="10" id="lXs-Vr-UOv"/>
                     <constraint firstItem="3qE-UO-Yns" firstAttribute="top" secondItem="1Qa-Kh-sPH" secondAttribute="bottom" constant="11" id="nYH-bU-f76"/>
                     <constraint firstItem="5mv-R4-jhA" firstAttribute="top" secondItem="1Qa-Kh-sPH" secondAttribute="bottom" constant="5" id="oMp-d6-NZf"/>
                     <constraint firstItem="1Qa-Kh-sPH" firstAttribute="leading" secondItem="Z9o-2M-HHo" secondAttribute="trailing" constant="5" id="rA2-Qu-NfL"/>
                     <constraint firstItem="5mv-R4-jhA" firstAttribute="width" secondItem="1Qa-Kh-sPH" secondAttribute="width" id="rbd-FK-5z9"/>
                     <constraint firstItem="EnI-ET-TOs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="tTW-Hf-mzH"/>
-                    <constraint firstItem="Z9o-2M-HHo" firstAttribute="top" secondItem="EnI-ET-TOs" secondAttribute="top" id="wYC-O6-gpk"/>
+                    <constraint firstItem="Z9o-2M-HHo" firstAttribute="top" secondItem="EnI-ET-TOs" secondAttribute="top" constant="20" id="wYC-O6-gpk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -141,6 +140,7 @@
                 <outlet property="productImageView" destination="EnI-ET-TOs" id="u5o-0C-VeV"/>
                 <outlet property="subTitleLabel" destination="CIN-cV-nNM" id="PRz-AK-gZT"/>
                 <outlet property="titleLabel" destination="Z9o-2M-HHo" id="66G-gI-Hhf"/>
+                <outlet property="titleLabelTopConstraintToImageView" destination="wYC-O6-gpk" id="MnE-gS-nnV"/>
             </connections>
             <point key="canvasLocation" x="58" y="95.5"/>
         </tableViewCell>

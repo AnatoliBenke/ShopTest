@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B09CB411F090FF100FD6F3D /* CurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09CB401F090FF100FD6F3D /* CurrencyTest.swift */; };
 		5B22DFE61EFFC64C0030E07B /* UIImageView+LoadAndCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFE51EFFC64C0030E07B /* UIImageView+LoadAndCache.swift */; };
 		5B22DFE71EFFC64C0030E07B /* UIImageView+LoadAndCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFE51EFFC64C0030E07B /* UIImageView+LoadAndCache.swift */; };
 		5B22DFE91EFFC6D90030E07B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22DFE81EFFC6D90030E07B /* CoreDataStack.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B09CB401F090FF100FD6F3D /* CurrencyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTest.swift; sourceTree = "<group>"; };
 		5B22DFE51EFFC64C0030E07B /* UIImageView+LoadAndCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadAndCache.swift"; sourceTree = "<group>"; };
 		5B22DFE81EFFC6D90030E07B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5B22DFEB1EFFCC4B0030E07B /* AppConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppConfig.json; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				5B2AE5231EFBF31400AF4A86 /* R3PI_ShopTests.swift */,
 				5B2AE5251EFBF31400AF4A86 /* Info.plist */,
+				5B09CB401F090FF100FD6F3D /* CurrencyTest.swift */,
 			);
 			path = R3PI_ShopTests;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				5BF550411EFE5112008D02E0 /* ThemeIPadDefault.swift in Sources */,
 				5BB3EEB31F078E6700809C6D /* CheckoutHeaderView.swift in Sources */,
 				5BB3EEB81F07A0D700809C6D /* CurrencyPickerViewController.swift in Sources */,
+				5B09CB411F090FF100FD6F3D /* CurrencyTest.swift in Sources */,
 				5B7320A21F061A80000948E5 /* Currency.swift in Sources */,
 				5BF550541EFE77B7008D02E0 /* CartViewController.swift in Sources */,
 				5BB3EEC11F07BFE800809C6D /* AlertManager.swift in Sources */,

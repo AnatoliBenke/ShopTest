@@ -292,17 +292,15 @@ extension CoreDataStack {
     }
     
     func clearCartItemData() {
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: CartItem.fetchRequest())
+        
         do {
-            let context = self.persistentContainer.viewContext
-            let fetchRequest = CartItem.request
-            do {
-                let objects = try context.fetch(fetchRequest) as? [NSManagedObject]
-                _ = objects.map{ $0.map{ context.delete($0) } }
-                self.saveContext()
-            }
-            catch let error {
-                print("ERROR DELETING : \(error)")
-            }
+            try self.persistentContainer.viewContext.execute(deleteRequest)
+            self.saveContext()
+        }
+        catch let error {
+            print("ERROR Deleting CartItems : \(error)")
         }
     }
 }

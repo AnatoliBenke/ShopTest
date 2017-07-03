@@ -97,6 +97,7 @@ class ShopViewController: UIViewController {
     // ==========================================================================
     
     fileprivate func setupTheme() {
+        
         self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
         
         self.view.backgroundColor = UIColor.defaultViewBackgroundColor()
@@ -106,8 +107,9 @@ class ShopViewController: UIViewController {
     }
     
     fileprivate func setupNavigationBarItems() {
+        
         let cartButton = UIBarButtonItem(image: UIImage(named: "CartIcon"), style: .plain, target: self, action: #selector(self.presentCartViewController))
-        cartButton.tintColor = UIColor.defaultCtaColor()
+        cartButton.tintColor = UIColor.defaultButtonTintColor()
         
         self.navigationItem.rightBarButtonItems = [cartButton]
     }
@@ -317,6 +319,7 @@ extension ShopViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: Open product detail page
+        self.collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
 
@@ -329,12 +332,14 @@ extension ShopViewController: ShopCollectionViewCellDelegate {
     func didPressAddToCartButton(on cell: ShopCollectionViewCell, button: UIButton) {
         if let indexPath = self.collectionView.indexPath(for: cell) {
             if let product = self.fetchedhResultController.fetchedObjects?[indexPath.row] as? ShopProduct {
-                CartManager.sharedInstance.add(product: product)
+                CartManager.add(product: product)
+                
+                let fromFrame = cell.imageView.convert(cell.imageView.bounds, to: self.view)
                 
                 let buttonItemView = self.navigationItem.rightBarButtonItem!.value(forKey: "view") as! UIView
                 let toFrame = buttonItemView.frame
                 
-                self.navigationController?.animateView(cell.imageView, fromRect: cell.frame, toRect: toFrame)
+                self.navigationController?.animateView(cell.imageView, fromRect: fromFrame, toRect: toFrame)
             }
         }
     }

@@ -19,27 +19,27 @@ class ThemeDefault: Theme {
     }
     
     func shopCollectionViewCellTitleLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
         label.textColor = UIColor.darkText
         
         label.backgroundColor = UIColor.clear
     }
     
     func shopCollectionViewCellSubTitleLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
     }
     
     func shopCollectionViewCellPriceLabelStyle(_ label: ShopLabel) {
-        label.font = UIFont.systemFont(ofSize: 17.0)
+        label.font = UIFont.systemFont(ofSize: 16.0)
         
         label.layer.cornerRadius = label.frame.size.height / 2
         label.layer.masksToBounds = true
         
         label.textColor = UIColor.white
-        label.backgroundColor = UIColor.red
+        label.backgroundColor = UIColor.priceTagColor()
         
         label.edgeInsets = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
     }
@@ -52,7 +52,7 @@ class ThemeDefault: Theme {
     func shopCollectionViewCellAddToCartButtonStyle(_ button: UIButton) {
         button.setTitle("", for: .normal)
         button.backgroundColor = UIColor.clear
-        button.tintColor = UIColor.defaultCtaColor()
+        button.tintColor = UIColor.defaultButtonTintColor()
         button.setImage(UIImage(named: "ToCartIcon"), for: .normal)
     }
     
@@ -61,20 +61,20 @@ class ThemeDefault: Theme {
     // ==========================================================================
     
     func cartTableViewCellStyle(_ cell: UITableViewCell) {
-        cell.backgroundColor = UIColor.cellBackgroundColor()
-        cell.contentView.backgroundColor = UIColor.cellBackgroundColor()
+        cell.backgroundColor = UIColor.white
+        cell.contentView.backgroundColor = UIColor.white
     }
     
     func cartTableViewCellTitleLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.textColor = UIColor.darkText
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
     }
     
     func cartTableViewCellSubTitleLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-        label.textColor = UIColor.gray
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
     }
@@ -85,45 +85,47 @@ class ThemeDefault: Theme {
     }
     
     func cartTableViewPriceDeviderImageViewStyle(_ imageView: UIImageView) {
-        imageView.backgroundColor = UIColor.lightGray
+        imageView.backgroundColor = UIColor.black
     }
     
     func cartTableViewCellCellDeviderImageViewStyle(_ imageView: UIImageView) {
-        imageView.backgroundColor = UIColor.red
+        imageView.backgroundColor = UIColor(204, 208, 210)
     }
     
     func cartTableViewCellPriceTotalLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-        label.textColor = UIColor.gray
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
     }
     
     func cartTableViewCellPriceLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-        label.textColor = UIColor.gray
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+        label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
     }
     
     func cartTableViewCellDecreaseButtonStyle(_ button: UIButton) {
         button.setTitle("-", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightRegular)
         button.backgroundColor = UIColor.white
         button.setTitleColor(UIColor.defaultCtaColor(), for: .normal)
         
         button.layer.borderColor = UIColor.defaultCtaColor().cgColor
-        button.layer.borderWidth = 1.0
+        button.layer.borderWidth = 2.0
         
         button.tintColor = UIColor.defaultCtaColor()
     }
     
     func cartTableViewCellIncreaseButtonStyle(_ button: UIButton) {
         button.setTitle("+", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightRegular)
         button.backgroundColor = UIColor.white
         button.setTitleColor(UIColor.defaultCtaColor(), for: .normal)
         
         button.layer.borderColor = UIColor.defaultCtaColor().cgColor
-        button.layer.borderWidth = 1.0
+        button.layer.borderWidth = 2.0
         
         button.tintColor = UIColor.defaultCtaColor()
     }
@@ -137,14 +139,14 @@ class ThemeDefault: Theme {
     }
     
     func checkoutHeaderViewPrefixLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFontWeightRegular)
         label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
     }
     
     func checkoutHeaderViewPriceLabelStyle(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFontWeightBold)
         label.textColor = UIColor.black
         
         label.backgroundColor = UIColor.clear
@@ -152,12 +154,13 @@ class ThemeDefault: Theme {
     
     func checkoutHeaderViewChangeCurrencyButtonStyle(_ button: UIButton) {
         button.setTitle("Change Currency", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         button.backgroundColor = UIColor.white
         button.setTitleColor(UIColor.defaultCtaColor(), for: .normal)
         button.setTitleColor(UIColor.defaultCtaHighlightedColor(), for: .highlighted)
         
         button.layer.borderColor = UIColor.defaultCtaColor().cgColor
-        button.layer.borderWidth = 1.0
+        button.layer.borderWidth = 2.0
         
         button.tintColor = UIColor.defaultCtaColor()
     }
@@ -172,14 +175,16 @@ class ThemeDefault: Theme {
     }
     
     func checkoutHeaderViewProceedButtonStyle(_ button: UIButton) {
-        button.setTitle("Proceed", for: .normal)
+        button.setTitle("Pay", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
         button.backgroundColor = UIColor.white
-        button.setTitleColor(UIColor.defaultCtaColor(), for: .normal)
-        button.setTitleColor(UIColor.defaultCtaHighlightedColor(), for: .highlighted)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.lightGray, for: .highlighted)
         
         button.layer.borderColor = UIColor.defaultCtaColor().cgColor
-        button.layer.borderWidth = 1.0
+        button.layer.borderWidth = 2.0
         
-        button.tintColor = UIColor.defaultCtaColor()
+        button.backgroundColor = UIColor.defaultCtaColor()
+        button.tintColor = UIColor.white
     }
 }
