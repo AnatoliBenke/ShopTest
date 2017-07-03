@@ -44,7 +44,8 @@ Examples:
 ### CocoaPods
 Some libraries could be included to speedup development and have a cleaner and easier maintainable code
 
-- PromiseKit (beautiful and structured API calls)
+- PromiseKit (beautiful and structured callbacks with queuing)
+- Alamofire (beautiful and structured API calls)
 - KingFisher (Image loading and caching)
 - ObjectMapper (easy and clean object parsing from JSON)
 - PureLayout (easy and dynamic adding and manipulating constraints for AutoLayout)
